@@ -29,13 +29,13 @@ public class MacronutrientDriver {
     public static MacronutrientAbstractFactory createMacronutrientFactory(String dietPlan) {
         switch (dietPlan) {
             case "No Restriction":
-                return new NoRestrictionMacronutrientFactory();
+                return NoRestrictionMacronutrientFactory.getInstance();
             case "Paleo":
-                return new PaleoMacronutrientFactory();
+                return PaleoMacronutrientFactory.getInstance();
             case "Vegan":
-                return new VeganMacronutrientFactory();
+                return VeganMacronutrientFactory.getInstance();
             case "Nut Allergy":
-                return new NutAllergyMacronutrientFactory();
+                return NutAllergyMacronutrientFactory.getInstance();
             default:
                 throw new IllegalArgumentException("Invalid diet plan.");
         }
