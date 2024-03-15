@@ -1,7 +1,16 @@
-class PaleoMacronutrientFactory implements MacronutrientAbstractFactory {
+public class PaleoMacronutrientFactory implements MacronutrientAbstractFactory {
+    private static final PaleoMacronutrientFactory instance = new PaleoMacronutrientFactory();
+
     private CarbsFactory carbsFactory = PaleoCarbsFactory.getInstance();
     private ProteinFactory proteinFactory = PaleoProteinFactory.getInstance();
     private FatsFactory fatsFactory = PaleoFatsFactory.getInstance();
+
+    private PaleoMacronutrientFactory() {
+    }
+
+    public static PaleoMacronutrientFactory getInstance() {
+        return instance;
+    }
 
     @Override
     public Carbs createCarbs() {
